@@ -1,0 +1,45 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Khám phá sự kiện nổi bật</h1>
+    <p>Tìm kiếm và tham gia những sự kiện hấp dẫn nhất đang diễn ra</p>
+  </div>
+
+  <div class="filter-section">
+    <mat-form-field appearance="outline" class="search-bar">
+      <mat-label>Tìm kiếm theo tên hoặc mô tả</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (ngModelChange)="applyFilters()" placeholder="VD: Đại nhạc hội...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="category-filter">
+      <mat-label>Lọc theo loại sự kiện</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" (ngModelChange)="applyFilters()">
+        @for (category of categories; track category) {
+          <mat-option [value]="category">{{ category === 'all' ? 'Tất cả' : category }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <h2>Sự kiện sắp diễn ra</h2>
+  <div class="event-grid">
+    @for (event of filteredEvents; track event.id) {
+      <mat-card class="event-card">
+        <img mat-card-image [src]="event.imageUrl" [alt]="event.name">
+        <mat-card-header>
+          <mat-card-title>{{ event.name }}</mat-card-title>
+          <mat-card-subtitle>{{ event.date | date: 'dd/MM/yyyy HH:mm' }} - {{ event.location }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ event.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary" [routerLink]="['/event', event.id]">XEM CHI TIẾT</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+  @if (filteredEvents.length === 0) {
+    <p class="no-events">Không tìm thấy sự kiện nào phù hợp.</p>
+  }
+</div>

@@ -1,0 +1,36 @@
+.detail-container {
+  max-width: 800px;
+  margin: 24px auto;
+}
+
+.event-detail-card {
+  width: 100%;
+}
+
+mat-card-header {
+  padding-bottom: 16px;
+}
+
+mat-card-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.description {
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+mat-card-actions {
+  padding: 16px !important;
+  display: flex;
+  gap: 8px;
+}

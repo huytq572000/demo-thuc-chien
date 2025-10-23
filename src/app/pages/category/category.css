@@ -1,0 +1,37 @@
+.category-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+mat-card-actions {
+  padding: 8px 16px !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.no-events {
+  font-style: italic;
+  color: #777;
+}

@@ -1,0 +1,33 @@
+<div class="detail-container">
+  @if (event) {
+    <mat-card class="event-detail-card">
+      <img mat-card-image [src]="event.imageUrl" [alt]="event.name">
+      <mat-card-header>
+        <mat-card-title>{{ event.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="info-item">
+          <mat-icon>event</mat-icon>
+          <span>{{ event.date | date: 'fullDate' }} lúc {{ event.date | date: 'shortTime' }}</span>
+        </div>
+        <div class="info-item">
+          <mat-icon>location_on</mat-icon>
+          <span>{{ event.location }}</span>
+        </div>
+        <p class="description">{{ event.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">
+          <mat-icon>favorite</mat-icon>
+          Quan tâm
+        </button>
+        <button mat-button>
+          <mat-icon>share</mat-icon>
+          Chia sẻ
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <p>Không tìm thấy sự kiện.</p>
+  }
+</div>

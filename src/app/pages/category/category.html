@@ -1,0 +1,22 @@
+<div class="category-container">
+  <h1>Danh mục: {{ categoryName | titlecase }}</h1>
+
+  @if (events.length > 0) {
+    <div class="event-grid">
+      @for (event of events; track event.id) {
+        <mat-card class="event-card">
+          <img mat-card-image [src]="event.imageUrl" [alt]="event.name">
+          <mat-card-header>
+            <mat-card-title>{{ event.name }}</mat-card-title>
+            <mat-card-subtitle>{{ event.date | date: 'dd/MM/yyyy HH:mm' }} - {{ event.location }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-flat-button color="primary" [routerLink]="['/event', event.id]">XEM CHI TIẾT</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  } @else {
+    <p class="no-events">Không có sự kiện nào trong danh mục này.</p>
+  }
+</div>
